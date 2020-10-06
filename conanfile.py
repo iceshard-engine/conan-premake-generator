@@ -114,7 +114,6 @@ class PremakeModule(object):
         lines += self.build_property("libdirs", deps.libdirs, True, IndentLevel=indentation)
         lines += self.build_property("links", deps.links, False, IndentLevel=indentation)
         lines += self.build_property("defines", deps.defines, False, IndentLevel=indentation)
-        lines += self.build_commands_property(deps.bindirs, "%{cfg.targetdir}", "copy", files="*.dll", stage="postbuild", IndentLevel=indentation)
 
         if lines and filter != None:
             lines.insert(0, 'filter { "tags:%s" }' % '", "'.join(filter))
@@ -165,7 +164,7 @@ class premake(Generator):
 
 class Premake5GeneratorPackage(ConanFile):
     name = "premake-generator"
-    version = "0.1.0"
+    version = "0.1.1"
     license = "MIT"
     description = "Conan package manager generator for premake."
 
